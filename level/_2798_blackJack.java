@@ -29,17 +29,15 @@ public class _2798_blackJack {
         int result = 0;
         for (int i = 0; i < arr.length; i++) {
             int sum = 0;
-            sum += arr[i];
-            for (int j = 0; j < arr.length; j++) {
-                if (i != j) {
-                    sum += arr[j];
-                    for (int k = 0; k < arr.length; k++) {
-                        if(j!=k){
-                            sum += arr[k];
-                            if(sum>result&&M>=sum){
-                                result = sum;
-                            }
-                        }
+            if (arr[i] > M) continue;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] + arr[j] > M) continue;
+                for (int k = j + 1; k < arr.length; k++) {
+                    sum = arr[i]+arr[j]+arr[k];
+                    if(sum==M)
+                        return M;
+                    if(sum<=M){
+                        result = sum;
                     }
                 }
             }
