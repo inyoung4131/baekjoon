@@ -1,9 +1,8 @@
-package level;
+package level._12_BruteForce;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class _2798_blackJack {
@@ -21,11 +20,11 @@ public class _2798_blackJack {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        int result = search(arr, N, M);
+        int result = search(arr, M);
         System.out.println(result);
     }
 
-    static int search(int[] arr, int N, int M) {
+    static int search(int[] arr, int M) {
         int result = 0;
         for (int i = 0; i < arr.length; i++) {
             int sum = 0;
@@ -33,10 +32,10 @@ public class _2798_blackJack {
             for (int j = i + 1; j < arr.length; j++) {
                 if (arr[i] + arr[j] > M) continue;
                 for (int k = j + 1; k < arr.length; k++) {
-                    sum = arr[i]+arr[j]+arr[k];
-                    if(sum==M)
+                    sum = arr[i] + arr[j] + arr[k];
+                    if (sum == M)
                         return M;
-                    if(sum<=M){
+                    if (sum <= M) {
                         result = sum;
                     }
                 }
